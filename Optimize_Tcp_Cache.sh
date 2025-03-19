@@ -20,7 +20,15 @@ SYSCTL_CONF="/etc/sysctl.conf"
 # 备份原 sysctl.conf
 cp $SYSCTL_CONF ${SYSCTL_CONF}.bak.$(date +%F-%H-%M-%S)
 
-echo -e "${GREEN}优化 TCP 缓存...${NC}"
+echo -e "${GREEN}TCP 缓存优化脚本${NC}"
+echo -e "${GREEN} ${NC}"
+echo -e "${GREEN}该脚本用于优化 TCP 缓存大小，调整网络参数，提高 VPS 的网络性能。${NC}"
+echo -e "${GREEN}适用于 Debian 11 及其他 Linux 发行版。${NC}"
+echo -e "${GREEN} ${NC}"
+echo -e "${GREEN}主要优化项：${NC}"
+echo -e "${GREEN}- 增大 TCP 缓冲区，提升吞吐量${NC}"
+echo -e "${GREEN}- 启用 BBR 拥塞控制算法，提高网络稳定性${NC}"
+echo -e "${GREEN}- 其他网络优化参数，提高数据传输效率${NC}"
 
 echo -e "\n${BLUE}[1] 调整 TCP 缓存大小...${NC}"
 sysctl -w net.core.rmem_max=536870912  # 最大接收缓冲区
